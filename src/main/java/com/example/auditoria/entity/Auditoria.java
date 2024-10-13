@@ -29,6 +29,8 @@ public class Auditoria {
     private String nombreBaseDatos;
     @Column(name = "nombreTabla", length = 200, nullable = false)
     private String nombreTabla;
+    @Column(name = "metodo", length = 200, nullable = false)
+    private String metodo;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaRegistro;

@@ -25,12 +25,13 @@ public class AuditoriaController {
         return auditoriaService.listaAuditorias().toString();
     }
 
-    @PostMapping("/registrar/{tipoBD}-{bd}-{tabla}")
-    public String registrarAuditoria(@PathVariable String tipoBD, @PathVariable String bd, @PathVariable String tabla) {
+    @PostMapping("/registrar/{tipoBD}-{bd}-{tabla}-{metodo}")
+    public String registrarAuditoria(@PathVariable String tipoBD, @PathVariable String bd, @PathVariable String tabla, @PathVariable String metodo) {
         Auditoria auditoria = new Auditoria();
         auditoria.setTipoBaseDatos(tipoBD);
         auditoria.setNombreBaseDatos(bd);
         auditoria.setNombreTabla(tabla);
+        auditoria.setMetodo(metodo);
         auditoria.setFechaRegistro(new Date());
         Auditoria objRegistrada =  auditoriaService.registraAuditoria(auditoria);
         if (objRegistrada.getIdAuditoria() >0)
